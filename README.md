@@ -60,8 +60,10 @@ Build and run the project
 - Jackson library
 - GitHub REST API
 
+## Project Idea
+
+[roadmap.sh](https://roadmap.sh/projects/github-user-activity)
 
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
