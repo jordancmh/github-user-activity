@@ -2,6 +2,7 @@ package com.jordancmh.github_user_activity;
 
 import java.io.IOException;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.jordancmh.github_user_activity.service.GithubActivityService;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
@@ -17,16 +18,10 @@ public class ShellCommands {
     }
 
     @ShellMethod(key = "github-activity", value = "Returns the recent activity of a GitHub user.")
-    public String getGithubActivity(@ShellOption(arity = Integer.MAX_VALUE, defaultValue = "") String[] username) {
+    public void getGithubActivity(@ShellOption(arity = Integer.MAX_VALUE, defaultValue = "") String[] username) {
         if (username.length != 1) {
-            return "Usage: github-activity <username>";
+            System.out.println("Usage: github-activity <username>");
         }
-
-        try {
-            return service.fetchGithubActivity(username[0]);
-        } catch (IOException | InterruptedException e) {
-            return "Failed to fetch activity: " + e.getMessage();
-        }
+        service.returnRecentGithubActivity(username);
     }
-
 }
