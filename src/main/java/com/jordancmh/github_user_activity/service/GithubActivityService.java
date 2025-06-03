@@ -30,7 +30,7 @@ public class GithubActivityService {
             try {
                 response = client.send(request, HttpResponse.BodyHandlers.ofString());
                 if (response.statusCode() != 200) {
-                    return "Failed to fetch activity. Status code: " + response.statusCode();
+                    return "Error fetching activity. Status code: " + response.statusCode();
                 }
             } catch (IOException | InterruptedException e) {
                 return "Error fetching activity: " + e.getMessage();
